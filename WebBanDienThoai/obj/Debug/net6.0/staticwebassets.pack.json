@@ -9,8 +9,76 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\fonts\\Linearicons-Free.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Linearicons-Free.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\fonts\\Pe-icon-7-stroke.woff",
+      "PackagePath": "staticwebassets\\fonts\\Pe-icon-7-stroke.woff"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\fonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\fonts\\ionicons.ttf",
+      "PackagePath": "staticwebassets\\fonts\\ionicons.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\fonts\\typicons.woff",
+      "PackagePath": "staticwebassets\\fonts\\typicons.woff"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\1.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\2.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\3.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\4.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\5.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\6.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\7.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\8.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\9.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
       "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\site.js",

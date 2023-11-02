@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualBasic;
 using System.ComponentModel;
 using System.Linq;
+using WebBanDienThoai.Models;
 
 namespace Admin.Services
 {
@@ -40,7 +41,7 @@ namespace Admin.Services
             var productSold = await _context.TChiTietHdbs.Include(t => t.SoHdbNavigation).SumAsync(x => x.Slban);
             return (double)productSold;
         }
-        /*public async Task<TChiTietHdb> GetTopProducts()
+        *//*public async Task<TChiTietHdb> GetTopProducts()
         {
             *//*var day =  _context.THoaDonBans.Select(x => x.NgayBan).ToList();
             foreach(var i in day)
@@ -61,7 +62,7 @@ namespace Admin.Services
             var result = query.FirstOrDefault();
 
             return result;
-        }*/
+        }*//*
 
         public async Task<string> GenerateSHDNAsync()
         {
@@ -82,4 +83,4 @@ namespace Admin.Services
         }
 
     }
-}
+}*/

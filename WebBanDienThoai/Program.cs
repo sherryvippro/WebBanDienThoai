@@ -1,27 +1,19 @@
-using Admin.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using WebBanDienThoai.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
 builder.Services.AddDbContext<QLBanDTContext>(options => options.UseSqlServer
                         (builder.Configuration.GetConnectionString("QLBanDT")));
 
-//builder.Services.AddSingleton<QLBanDTContext>();
-builder.Services.AddTransient<ProductServices>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
 var app = builder.Build();
-
-/*using(var scope = app.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-   
-}*/
+  
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -40,6 +32,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=TSps}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
