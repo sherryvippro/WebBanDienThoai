@@ -59,7 +59,7 @@ namespace WebBanDienThoai.Models
 
                 entity.Property(e => e.Hoten).HasMaxLength(50);
 
-                entity.Property(e => e.Idquyen).HasColumnName("IDQuyen");
+                entity.Property(e => e.IDQuyen).HasColumnName("IDQuyen");
 
                 entity.Property(e => e.Matkhau)
                     .HasMaxLength(50)
@@ -68,11 +68,11 @@ namespace WebBanDienThoai.Models
 
             modelBuilder.Entity<PhanQuyen>(entity =>
             {
-                entity.HasKey(e => e.Idquyen);
+                entity.HasKey(e => e.IDQuyen);
 
                 entity.ToTable("PhanQuyen");
 
-                entity.Property(e => e.Idquyen).HasColumnName("IDQuyen");
+                entity.Property(e => e.IDQuyen).HasColumnName("IDQuyen");
 
                 entity.Property(e => e.TenQuyen).HasMaxLength(20);
             });

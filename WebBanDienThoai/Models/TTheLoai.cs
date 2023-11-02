@@ -7,5 +7,6 @@ namespace WebBanDienThoai.Models
     {
         public string MaTl { get; set; } = null!;
         public string? TenTl { get; set; }
+        public virtual ICollection<TSp> TSp { get; set; }
     }
 }

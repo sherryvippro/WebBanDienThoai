@@ -13,5 +13,9 @@ namespace WebBanDienThoai.Models
         public decimal? DonGiaBan { get; set; }
         public int? SoLuong { get; set; }
         public byte[]? Anh { get; set; }
+        public virtual THang? MaHangNavigation { get; set; }
+        public virtual TTheLoai? MaTlNavigation { get; set; }
+        public virtual ICollection<TChiTietHdb> TChiTietHdbs { get; set; }
+        public virtual ICollection<TChiTietHdn> TChiTietHdns { get; set; }
     }
 }

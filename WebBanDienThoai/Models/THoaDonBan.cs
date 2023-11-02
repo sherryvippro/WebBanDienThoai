@@ -9,5 +9,7 @@ namespace WebBanDienThoai.Models
         public DateTime? NgayBan { get; set; }
         public string? MaNguoiDung { get; set; }
         public decimal? TongHdb { get; set; }
+        public virtual Nguoidung? MaKhNavigation { get; set; }
+        public virtual ICollection<TChiTietHdb> TChiTietHdbs { get; set; }
     }
 }

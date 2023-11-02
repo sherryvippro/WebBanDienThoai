@@ -7,5 +7,6 @@ namespace WebBanDienThoai.Models
     {
         public string MaNcc { get; set; } = null!;
         public string? TenNcc { get; set; }
+        public virtual ICollection<THoaDonNhap> THoaDonNhaps { get; set; }
     }
 }

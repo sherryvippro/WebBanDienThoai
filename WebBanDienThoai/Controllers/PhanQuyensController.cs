@@ -35,7 +35,7 @@ namespace WebBanDienThoai.Controllers
             }
 
             var phanQuyen = await _context.PhanQuyens
-                .FirstOrDefaultAsync(m => m.Idquyen == id);
+                .FirstOrDefaultAsync(m => m.IDQuyen == id);
             if (phanQuyen == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace WebBanDienThoai.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Idquyen,TenQuyen")] PhanQuyen phanQuyen)
+        public async Task<IActionResult> Create([Bind("IDQuyen,TenQuyen")] PhanQuyen phanQuyen)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +87,9 @@ namespace WebBanDienThoai.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Idquyen,TenQuyen")] PhanQuyen phanQuyen)
+        public async Task<IActionResult> Edit(int id, [Bind("IDQuyen,TenQuyen")] PhanQuyen phanQuyen)
         {
-            if (id != phanQuyen.Idquyen)
+            if (id != phanQuyen.IDQuyen)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace WebBanDienThoai.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PhanQuyenExists(phanQuyen.Idquyen))
+                    if (!PhanQuyenExists(phanQuyen.IDQuyen))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace WebBanDienThoai.Controllers
             }
 
             var phanQuyen = await _context.PhanQuyens
-                .FirstOrDefaultAsync(m => m.Idquyen == id);
+                .FirstOrDefaultAsync(m => m.IDQuyen == id);
             if (phanQuyen == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace WebBanDienThoai.Controllers
 
         private bool PhanQuyenExists(int id)
         {
-          return (_context.PhanQuyens?.Any(e => e.Idquyen == id)).GetValueOrDefault();
+          return (_context.PhanQuyens?.Any(e => e.IDQuyen == id)).GetValueOrDefault();
         }
     }
 }

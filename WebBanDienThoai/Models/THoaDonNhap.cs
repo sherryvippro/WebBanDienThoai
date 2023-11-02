@@ -9,5 +9,7 @@ namespace WebBanDienThoai.Models
         public DateTime? NgayNhap { get; set; }
         public string? MaNcc { get; set; }
         public decimal? TongHdn { get; set; }
+        public virtual TNhaCungCap? MaNccNavigation { get; set; }
+        public virtual ICollection<TChiTietHdn> TChiTietHdns { get; set; }
     }
 }
