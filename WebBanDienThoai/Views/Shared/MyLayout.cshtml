@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Products Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <link rel="icon" href="favicon.ico">
+    
+    <meta name="msapplication-tap-highlight" content="no">
+    <link href="~/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="app-container app-theme-gray">
+        <div class="app-main">
+            @* <div class="app-sidebar-wrapper"> *@
+                @* Begin LeftMenu *@
+                <partial name="LeftMenu" />
+                @*End LeftMenu*@
+            @* </div> *@
+            <div class="app-sidebar-overlay d-none animated fadeIn"></div>
+            <div class="app-main__outer">
+                <div class="app-main__inner">
+                    <div class="header-mobile-wrapper">
+                        <div class="app-header__logo">
+                            <a href="#" class="logo-src"></a>
+                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-sidebar-nav">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                            <div class="app-header__menu">
+                                <span>
+                                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                        <span class="btn-icon-wrapper">
+                                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    @* <div class="app-header"> *@
+                        @* Begin App-Header*@
+                        <partial name="AppHeader" />
+                        @*End App-Header*@
+                    @* </div> *@
+                    <div class="app-inner-layout app-inner-layout-page">
+                        @* <div class="app-inner-bar"> *@
+                            @*Begin App-Inner-Bar*@
+                            @*End App-Inner-Bar*@
+                        @* </div> *@
+                        @* <div class="app-inner-layout__wrapper"> *@
+                            @*Main*@
+                        <div class="app-inner-layout__wrapper">
+                           
+                            <div class="app-inner-layout__content">
+                                <div class="tab-content">
+                                    @RenderBody()
+                                </div>
+                            </div>
+                        </div>
+                        @* </div> *@
+                        </div>
+                </div>
+                @* <div class="app-wrapper-footer"> *@
+                    <partial name="Footer" />
+                @* </div> *@
+                </div>
+        </div>
+        
+    </div>
+    <script src="~/js/script.js"></script>
+    @RenderSection("Scripts", required: false)
+    @RenderSection("Pagination", required: false)
+</body>
+
+</html>
