@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yFV7yQb6+rGqUh59AU01lwB0UNUJnbja4l6gVYWvatc=",
+  "Hash": "sH99lBhB4rqF564ZjnpMwzBPij5KMIxC/t3Nmoftm70=",
   "Source": "WebBanDienThoai",
   "BasePath": "_content/WebBanDienThoai",
   "Mode": "Default",
@@ -2531,6 +2531,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Login\\main.07a59de7b920cd76b874.css"
+    },
+    {
+      "Identity": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\SignUp\\assets\\images\\logo-inverse.png",
+      "SourceId": "WebBanDienThoai",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\",
+      "BasePath": "_content/WebBanDienThoai",
+      "RelativePath": "SignUp/assets/images/logo-inverse.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SignUp\\assets\\images\\logo-inverse.png"
+    },
+    {
+      "Identity": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\SignUp\\assets\\scripts\\main.07a59de7b920cd76b874.js",
+      "SourceId": "WebBanDienThoai",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\",
+      "BasePath": "_content/WebBanDienThoai",
+      "RelativePath": "SignUp/assets/scripts/main.07a59de7b920cd76b874.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SignUp\\assets\\scripts\\main.07a59de7b920cd76b874.js"
+    },
+    {
+      "Identity": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\SignUp\\main.07a59de7b920cd76b874.css",
+      "SourceId": "WebBanDienThoai",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\",
+      "BasePath": "_content/WebBanDienThoai",
+      "RelativePath": "SignUp/main.07a59de7b920cd76b874.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SignUp\\main.07a59de7b920cd76b874.css"
     }
   ]
 }

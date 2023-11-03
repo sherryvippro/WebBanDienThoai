@@ -29,6 +29,18 @@
       "PackagePath": "staticwebassets\\Login\\main.07a59de7b920cd76b874.css"
     },
     {
+      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\SignUp\\assets\\images\\logo-inverse.png",
+      "PackagePath": "staticwebassets\\SignUp\\assets\\images\\logo-inverse.png"
+    },
+    {
+      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\SignUp\\assets\\scripts\\main.07a59de7b920cd76b874.js",
+      "PackagePath": "staticwebassets\\SignUp\\assets\\scripts\\main.07a59de7b920cd76b874.js"
+    },
+    {
+      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\SignUp\\main.07a59de7b920cd76b874.css",
+      "PackagePath": "staticwebassets\\SignUp\\main.07a59de7b920cd76b874.css"
+    },
+    {
       "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
