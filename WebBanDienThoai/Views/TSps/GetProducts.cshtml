@@ -1,0 +1,190 @@
+﻿@using WebBanDienThoai.Models.ViewModels;
+@model ProductListViewModel
+
+<div class="backgr-color" style="background-color: white; padding-top: 10px; border-radius: 5px; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);">
+    <h1 class="product-list">DANH sÁCH SẢN PHẨM</h1>
+    @*  <hr />
+    <div class="search-wrapper">
+    <i class="search-icon-wrapper typcn typcn-zoom-outline"></i>
+    <input type="text" placeholder="Search...">
+    </div> *@
+    <hr />
+    <div class="table-responsive">
+        <div id="content">
+            <table class="align-middle text-truncate mb-0 table table-borderless table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Mã sản phẩm
+                        </th>
+                        <th>
+                            Tên sản phẩm
+                        </th>
+                        <th>
+                            Đơn giá nhập
+                        </th>
+                        <th>
+                            Đơn giá bán
+                        </th>
+                        <th>
+                            Số lượng
+                        </th>
+                        <th>
+                            Ảnh
+                        </th>
+                        <th>
+                            Tên hãng
+                        </th>
+                        <th>
+                            Tên thể loại
+                        </th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Products)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaSp)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenSp)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DonGiaNhap)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DonGiaBan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SoLuong)
+                            </td>
+                            <td>
+                                <img src="~/api/image/@item.Anh" width="100px" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaHangNavigation.TenHang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaTlNavigation.TenTl)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.MaSp">Sửa</a> |
+                                <a asp-action="Details" asp-route-id="@item.MaSp">Chi tiết</a> |
+                                <a asp-action="Delete" asp-route-id="@item.MaSp">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <hr />
+        <a asp-action="Create" class="btn btn-primary">Thêm mới</a>
+
+
+
+        @* <ul class="pagination justify-content-end" style="float: right; width: 50%; margin-right: 15px;">
+        <li class="page-item">
+        @if (Model.PagingInfo.currentPage == 1)
+        {
+        <a class="page-link disabled" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage - 1)">Previous</a>
+        }
+        else
+        {
+        <a class="page-link" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage - 1)">Previous</a>
+        }
+        </li>
+
+        @for (int i = 1; i <= Model.PagingInfo.totalPage; i++)
+        {
+        <li class="page-item"><a class="page-link" href="~/TSps/?productPage=@i">@i</a></li>
+        }
+
+        <li class="page-item">
+        @if (Model.PagingInfo.currentPage == Model.PagingInfo.totalPage)
+        {
+        <a class="page-link disabled" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage + 1)">Next</a>
+        }
+        else
+        {
+        <a class="page-link" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage + 1)">Next</a>
+        }
+        </li>
+        </ul> *@
+
+        @* <div id="content"> *@
+        <ul class="pagination justify-content-end" style="float: right; width: 50%; margin-right: 15px;">
+            <li class="page-item">
+                @if (Model.PagingInfo.currentPage == 1)
+                {
+                    <a class="page-link disabled" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage - 1)">Previous</a>
+                }
+                else
+                {
+                    <a class="page-link" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage - 1)">Previous</a>
+                }
+            </li>
+
+            @for (int i = 1; i <= Model.PagingInfo.totalPage; i++)
+            {
+                <li class="page-item @(i == Model.PagingInfo.currentPage ? "active" : "")">
+                    <a class="page-link" href="~/TSps/?productPage=@i" style="cursor: pointer">@i</a>
+                </li>
+            }
+
+            <li class="page-item">
+                @if (Model.PagingInfo.currentPage == Model.PagingInfo.totalPage)
+                {
+                    <a class="page-link disabled" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage + 1)">Next</a>
+                }
+                else
+                {
+                    <a class="page-link" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage + 1)">Next</a>
+                }
+            </li>
+        </ul>
+        @* </div> *@
+
+    </div>
+</div>
+<style>
+    .btn {
+        float: left;
+        margin-left: 15px;
+    }
+
+    .product-list {
+        margin-top: revert-layer;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    a.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .card-body-1 {
+        width: 60%;
+        margin-left: 20px;
+    }
+</style>
+
+@section Paginate{
+    <script>
+        function loadPage(page, pageSize) {
+            $.ajax({
+                url: '/TSps/Index',
+                data: { page: page, pageSize: pageSize },
+                success: function (data) {
+                    $('#content').html(data);
+                },
+                error: function () {
+                    alert('Có lỗi xảy ra khi tai trang.');
+                }
+
+            });
+        }
+    </script>
+}

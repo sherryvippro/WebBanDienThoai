@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 using System.Linq;
+using System;
 
 namespace WebBanDienThoai.Services
 {
@@ -22,23 +23,49 @@ namespace WebBanDienThoai.Services
             _context = context;
             _imageServices = imageServices;
         }
-        public async Task<TSp> CreateProductAsync(TSp tSp,string ID)
+        public async Task<TSp> CreateProductAsync(InputProducts inputProducts)
         {
-            var query = _context.TSp.Find(ID);
-            if(query != null)
+            var query = _context.TSp.Find(inputProducts.MaSp);
+            var tSp = new TSp()
             {
-                query.TenSp = tSp.TenSp;
-                query.SoLuong += tSp.SoLuong;
-                query.DonGiaBan = tSp.DonGiaBan;
-                query.DonGiaNhap = tSp.DonGiaNhap;
-                query.Anh = tSp.Anh;
+                TenSp = inputProducts.TenSp,
+                MaSp = inputProducts.MaSp,
+                SoLuong = inputProducts.SoLuong,
+                DonGiaNhap = inputProducts?.DonGiaNhap,
+                DonGiaBan = inputProducts?.DonGiaBan,
+                Anh = await _imageServices.SaveFileAsync(inputProducts.Anh),
+                MaHang = inputProducts?.MaHang,
+                MaTl = inputProducts?.MaTl
+            };
+            if (query != null)
+            {
+                query.TenSp = inputProducts.TenSp;
+                query.SoLuong += inputProducts.SoLuong;
+                query.DonGiaBan = inputProducts.DonGiaBan;
+                query.DonGiaNhap = inputProducts.DonGiaNhap;
+                query.Anh = await _imageServices.SaveFileAsync(inputProducts.Anh);
             }
             else
             {
+                
                 _context.Add(tSp);
             }
             _context.SaveChanges();
             return tSp;
+        }
+        public async Task<TSp> EditProductAsync(InputProducts inputProducts)
+        {
+            var query = _context.TSp.Find(inputProducts.MaSp);
+            if (query != null)
+            {
+                query.TenSp = inputProducts.TenSp;
+                query.SoLuong += inputProducts.SoLuong;
+                query.DonGiaBan = inputProducts.DonGiaBan;
+                query.DonGiaNhap = inputProducts.DonGiaNhap;
+                query.Anh = await _imageServices.SaveFileAsync(inputProducts.Anh);
+            }
+            _context.SaveChanges();
+            return query;
         }
         public async Task<TSp> DeleteProductAsync(string id)
         {

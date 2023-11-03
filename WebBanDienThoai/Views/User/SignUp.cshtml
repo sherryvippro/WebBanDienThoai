@@ -23,16 +23,17 @@
                     <div class="mx-auto app-login-box col-md-8">
                         <div class="modal-dialog w-100">
                             <div class="modal-content">
-                                <div class="modal-body">
-                                    <h5 class="modal-title">
-                                        <h4 class="mt-2">
-                                            <div>Xin chào,</div>
-                                            <span>Chỉ mất <span class="text-success">vài giây</span> để đăng ký tài khoản của bạn</span>
-                                        </h4>
-                                    </h5>
-                                    <div class="divider row"></div>
-                                    @using (Html.BeginForm("Index", "SignUp", FormMethod.Post))
-                                    {
+                                <form asp-action="Index" method="post">
+                                    <div class="modal-body">
+                                        <h5 class="modal-title">
+                                            <h4 class="mt-2">
+                                                <div>Xin chào,</div>
+                                                <span>Chỉ mất <span class="text-success">vài giây</span> để đăng ký tài khoản của bạn</span>
+                                            </h4>
+                                        </h5>
+                                        <div class="divider row"></div>
+
+
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="position-relative form-group">
@@ -60,20 +61,21 @@
                                             </div>
                                         </div>
 
-                                    }
-                                    <div class="mt-3 position-relative form-check">
-                                        <input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">
-                                            Đồng ý <a href="javascript:void(0);">
-                                                điều khoản và điều kiện
-                                            </a> của chúng tôi.
-                                        </label>
+
+                                        <div class="mt-3 position-relative form-check">
+                                            <input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">
+                                                Đồng ý <a href="javascript:void(0);">
+                                                    điều khoản và điều kiện
+                                                </a> của chúng tôi.
+                                            </label>
+                                        </div>
+                                        <div class="divider row"></div>
+                                        <h6 class="mb-0">Bạn đã có tài khoản? <a href="javascript:void(0);" class="text-primary">Đăng nhập ngay</a> | <a href="javascript:void(0);" class="text-primary">Quên mật khẩu</a></h6>
                                     </div>
-                                    <div class="divider row"></div>
-                                    <h6 class="mb-0">Bạn đã có tài khoản? <a href="javascript:void(0);" class="text-primary">Đăng nhập ngay</a> | <a href="javascript:void(0);" class="text-primary">Quên mật khẩu</a></h6>
-                                </div>
-                                <div class="modal-footer d-block text-center">
-                                    <button type="submit" class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">Đăng ký</button>
-                                </div>
+                                    <div class="modal-footer d-block text-center">
+                                        <button type="submit" class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">Đăng ký</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -81,6 +83,6 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="~/SignUp/assets/scripts/main.07a59de7b920cd76b874.js"></script>
+    @* <script type="text/javascript" src="~/SignUp/assets/scripts/main.07a59de7b920cd76b874.js"></script> *@
 </body>
 </html>

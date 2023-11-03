@@ -11,7 +11,7 @@ using X.PagedList;
 
 namespace WebBanDienThoai.Controllers
 {
-    public class NguoidungsController : Controller
+    public class NguoidungsController : BaseController
     {
         private readonly QLBanDTContext _context = new QLBanDTContext();
         

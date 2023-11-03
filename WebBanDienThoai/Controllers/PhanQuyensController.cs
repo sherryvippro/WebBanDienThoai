@@ -9,7 +9,7 @@ using WebBanDienThoai.Models;
 
 namespace WebBanDienThoai.Controllers
 {
-    public class PhanQuyensController : Controller
+    public class PhanQuyensController : BaseController
     {
         private readonly QLBanDTContext _context;
 

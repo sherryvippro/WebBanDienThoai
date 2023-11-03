@@ -71,7 +71,7 @@
                                 @Html.DisplayFor(modelItem => item.SoLuong)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Anh)
+                                <img src="~/api/image/@item.Anh" width="50px" />
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.MaHangNavigation.TenHang)
@@ -128,29 +128,29 @@
             <li class="page-item">
                 @if (Model.PagingInfo.currentPage == 1)
                 {
-                    <a class="page-link disabled" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage - 1)">Previous</a>
+                    <a class="page-link disabled" href="~/TSps/Index?productPage=@(Model.PagingInfo.currentPage - 1)">Previous</a>
                 }
                 else
                 {
-                    <a class="page-link" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage - 1)">Previous</a>
+                    <a class="page-link" href="~/TSps/Index?productPage=@(Model.PagingInfo.currentPage - 1)">Previous</a>
                 }
             </li>
 
             @for (int i = 1; i <= Model.PagingInfo.totalPage; i++)
             {
                 <li class="page-item @(i == Model.PagingInfo.currentPage ? "active" : "")">
-                    <a class="page-link" href="~/TSps/?productPage=@i" style="cursor: pointer">@i</a>
+                    <a class="page-link" href="~/TSps/Index?productPage=@i" style="cursor: pointer">@i</a>
                 </li>
             }
 
             <li class="page-item">
                 @if (Model.PagingInfo.currentPage == Model.PagingInfo.totalPage)
                 {
-                    <a class="page-link disabled" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage + 1)">Next</a>
+                    <a class="page-link disabled" href="~/TSps/Index?productPage=@(Model.PagingInfo.currentPage + 1)">Next</a>
                 }
                 else
                 {
-                    <a class="page-link" href="~/TSps/?productPage=@(Model.PagingInfo.currentPage + 1)">Next</a>
+                    <a class="page-link" href="~/TSps/Index?productPage=@(Model.PagingInfo.currentPage + 1)">Next</a>
                 }
             </li>
         </ul>

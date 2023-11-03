@@ -14,12 +14,12 @@ using WebBanDienThoai.InputModels;
 
 namespace WebBanDienThoai.Controllers
 {
-    public class TSpsController : Controller
+    public class TSpsController : BaseController
     {
         private readonly QLBanDTContext _context;
         private readonly ProductServices _productServices;
         /*private readonly ImageServices _imageServices;*/
-        public int pageSize = 8;
+        public int pageSize = 3;
 
         public TSpsController(QLBanDTContext context, ProductServices productServices)
         {
@@ -64,7 +64,7 @@ namespace WebBanDienThoai.Controllers
                 {
                     itemsPerPage = pageSize,
                     currentPage = productPage,
-                    totalItem = _context.TSp.Count(),
+                    totalItem = _context.TSp.Where(x => x.SoLuong > 0).Count(),
                 }
             };
             return View(products);
@@ -167,14 +167,15 @@ namespace WebBanDienThoai.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaSp,TenSp,MaTl,MaHang,DonGiaNhap,DonGiaBan,SoLuong,Anh")] TSp tSp/*, InputProducts inputProducts*/)
+        public async Task<IActionResult> Create(InputProducts inputProducts)
         {
             /*var fileName = await _imageServices.SaveFileAsync(inputProducts.Anh);
             tSp.Anh = fileName;*/
+
             if (ModelState.IsValid)
             {
 
-                var product = _productServices.CreateProductAsync(tSp, tSp.MaSp);
+                var product = await _productServices.CreateProductAsync(inputProducts);
                 return RedirectToAction(nameof(Index));
 
             }
@@ -185,10 +186,10 @@ namespace WebBanDienThoai.Controllers
                             sohdb = c.SoHdn,
                             masp = c1.MaSp
                         };
-            ViewData["MaSp"] = new SelectList(query.Select(t => t.masp).ToList());
+            /*ViewData["MaSp"] = new SelectList(query.Select(t => t.masp).ToList());
             ViewData["MaHang"] = new SelectList(_context.THangs, "MaHang", "TenHang", tSp.MaHang);
-            ViewData["MaTl"] = new SelectList(_context.TTheLoais, "MaTL", "TenTl", tSp.MaTl);
-            return View(tSp);
+            ViewData["MaTl"] = new SelectList(_context.TTheLoais, "MaTL", "TenTl", tSp.MaTl);*/
+            return View();
         }
         /*public async Task<IActionResult> PostProduct([FromForm]InputProducts inputProducts)
         {

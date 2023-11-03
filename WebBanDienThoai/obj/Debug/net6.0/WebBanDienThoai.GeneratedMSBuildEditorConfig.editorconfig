@@ -24,10 +24,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Web/WebBanDienThoai/WebBanDienThoai/Views/Login/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Web/WebBanDienThoai/WebBanDienThoai/Views/Nguoidungs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lkdW5nc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,10 +72,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Web/WebBanDienThoai/WebBanDienThoai/Views/Shared/Footer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZvb3Rlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Web/WebBanDienThoai/WebBanDienThoai/Views/Shared/LeftMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExlZnRNZW51LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -90,10 +82,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Web/WebBanDienThoai/WebBanDienThoai/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Web/WebBanDienThoai/WebBanDienThoai/Views/SignUp/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnblVwXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Web/WebBanDienThoai/WebBanDienThoai/Views/TChiTietHdns/Create.cshtml]
@@ -152,12 +140,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVFNwc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Web/WebBanDienThoai/WebBanDienThoai/Views/TSps/GetProducts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVFNwc1xHZXRQcm9kdWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Web/WebBanDienThoai/WebBanDienThoai/Views/TSps/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVFNwc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Web/WebBanDienThoai/WebBanDienThoai/Views/TSps/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVFNwc1xTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web/WebBanDienThoai/WebBanDienThoai/Views/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web/WebBanDienThoai/WebBanDienThoai/Views/User/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduVXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Web/WebBanDienThoai/WebBanDienThoai/Views/_ViewImports.cshtml]

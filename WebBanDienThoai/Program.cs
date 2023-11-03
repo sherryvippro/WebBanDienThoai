@@ -14,6 +14,10 @@ builder.Services.AddTransient<ImageServices>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession(option =>
+{
+    option.IdleTimeout = TimeSpan.FromMinutes(30);
+});
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
@@ -36,9 +40,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseSession();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=TSps}/{action=Index}/{id?}");
+    pattern: "{controller=User}/{action=Login}/{id?}");
 
 app.Run();

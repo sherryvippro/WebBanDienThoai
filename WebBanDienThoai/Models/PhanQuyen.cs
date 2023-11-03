@@ -6,10 +6,7 @@ namespace WebBanDienThoai.Models
 {
     public partial class PhanQuyen
     {
-        public PhanQuyen()
-        {
-            Nguoidung = new HashSet<Nguoidung>();
-        }
+        
 
         [Key]
         public int IDQuyen { get; set; }
@@ -19,6 +16,6 @@ namespace WebBanDienThoai.Models
 
         public string TenQuyen { get; set; }
 
-        public virtual ICollection<Nguoidung> Nguoidung { get; set; }
+        //public virtual ICollection<Nguoidung> Nguoidung { get; set; }
     }
 }
