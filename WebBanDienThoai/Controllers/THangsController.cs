@@ -21,27 +21,9 @@ namespace WebBanDienThoai.Controllers
         // GET: THangs
         public async Task<IActionResult> Index()
         {
-              return _context.THangs != null ? 
-                          View(await _context.THangs.ToListAsync()) :
-                          Problem("Entity set 'QLBanDTContext.THangs'  is null.");
-        }
-
-        // GET: THangs/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.THangs == null)
-            {
-                return NotFound();
-            }
-
-            var tHang = await _context.THangs
-                .FirstOrDefaultAsync(m => m.MaHang == id);
-            if (tHang == null)
-            {
-                return NotFound();
-            }
-
-            return View(tHang);
+            return _context.THangs != null ?
+                        View(await _context.THangs.ToListAsync()) :
+                        Problem("Entity set 'QLBanDTContext.THangs'  is null.");
         }
 
         // GET: THangs/Create
@@ -118,7 +100,7 @@ namespace WebBanDienThoai.Controllers
         }
 
         // GET: THangs/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(string? id)
         {
             if (id == null || _context.THangs == null)
             {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FgjiIxyTQ/Rcb1cl4WvsDdgwMQRhMnF6A07gichJcTcrLkWmpdoVuLTImO+NyuzRFhNQ0vhpXmkBaAh4NwD8SQ==",
+  "dgSpecHash": "vA+U1xIBJn2KlMbqqHhv1dECcWcjbi60Ifc5e/RK2/h6mthBY0yQLFAeUQJYKwSepaoqHaUdceNG0leuup4ZAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\WebBanDienThoai.csproj",
   "expectedPackageFiles": [
@@ -55,6 +55,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\jetbrains.annotations\\2022.3.1\\jetbrains.annotations.2022.3.1.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\jquery\\3.6.3\\jquery.3.6.3.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",

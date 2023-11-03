@@ -15,7 +15,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "6.0.24",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
           "X.PagedList": "8.4.7",
-          "X.PagedList.Mvc.Core": "8.4.7"
+          "X.PagedList.Mvc.Core": "8.4.7",
+          "jQuery": "3.6.3"
         },
         "runtime": {
           "WebBanDienThoai.dll": {}
@@ -569,6 +570,7 @@
           }
         }
       },
+      "jQuery/3.6.3": {},
       "MessagePack/2.1.152": {
         "dependencies": {
           "MessagePack.Annotations": "2.1.152",
@@ -3054,6 +3056,13 @@
       "sha512": "sha512-11nsS3+lFICGkztVs9PP2NRItxf9fF+qD6xEW/T0YGto52zj07wseUeBdMAU1ah9HNVTDZyRC1u4NWdtJScwhw==",
       "path": "jetbrains.annotations/2022.3.1",
       "hashPath": "jetbrains.annotations.2022.3.1.nupkg.sha512"
+    },
+    "jQuery/3.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v87yTa8y+t642SsUBRl+XSFg1+zkMfRMd3aO714aYL+AwVxglV7tcW7ZoL4BgwczXev8ge+0kNQBj2rWdyI+dQ==",
+      "path": "jquery/3.6.3",
+      "hashPath": "jquery.3.6.3.nupkg.sha512"
     },
     "MessagePack/2.1.152": {
       "type": "package",

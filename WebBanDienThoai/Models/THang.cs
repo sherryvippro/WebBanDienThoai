@@ -5,7 +5,7 @@ namespace WebBanDienThoai.Models
 {
     public partial class THang
     {
-        public string MaHang { get; set; } = null!;
+        public string MaHang { get; set; } 
         public string? TenHang { get; set; }
         public virtual ICollection<TSp> TSp { get; set; }
     }

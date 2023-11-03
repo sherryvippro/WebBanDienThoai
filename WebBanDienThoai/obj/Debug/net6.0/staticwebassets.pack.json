@@ -77,6 +77,82 @@
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\ckeditor.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\ckfinder.js",
+      "PackagePath": "staticwebassets\\js\\ckfinder.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery-3.4.1.intellisense.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.intellisense.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery-3.4.1.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery-3.4.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery-3.4.1.min.map",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.min.map"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery-3.4.1.slim.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.slim.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery-3.4.1.slim.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.slim.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery-3.4.1.slim.min.map",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery.unobtrusive-ajax.js",
+      "PackagePath": "staticwebassets\\js\\jquery.unobtrusive-ajax.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery.unobtrusive-ajax.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.unobtrusive-ajax.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery.validate-vsdoc.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate-vsdoc.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\modernizr-2.8.3.js",
+      "PackagePath": "staticwebassets\\js\\modernizr-2.8.3.js"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Documents\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },

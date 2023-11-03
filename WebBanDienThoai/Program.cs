@@ -1,9 +1,14 @@
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 using WebBanDienThoai.Models;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<QLBanDTContext>(options => options.UseSqlServer
-                        (builder.Configuration.GetConnectionString("QLBanDT")));
+/*builder.Services.AddDbContext<QLBanDTContext>(options => options.UseSqlServer
+                        (builder.Configuration.GetConnectionString("DefaultConnection")));*/
+var connectionString = builder.Configuration.GetConnectionString("Connection");
+builder.Services.AddDbContext<QLBanDTContext>(x => x.UseSqlServer(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

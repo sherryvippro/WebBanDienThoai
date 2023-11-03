@@ -1,16 +1,17 @@
-﻿@model WebBanDienThoai.Models.Nguoidung
+﻿@model WebBanDienThoai.Models.User_Role
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/MyLayout.cshtml";
 }
 
-<h1>Details</h1>
+<h2>Chi tiết người dùng</h2>
 
 <div>
-    <h4>Nguoidung</h4>
+   
     <hr />
-    <dl class="row">
+    <dl class=" dl-horizontal">
+       
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Hoten)
         </dt>
@@ -24,10 +25,10 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Dienthoai)
+            @Html.DisplayNameFor(model => model.DienThoai)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Dienthoai)
+            @Html.DisplayFor(model => model.DienThoai)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Matkhau)
@@ -36,10 +37,9 @@
             @Html.DisplayFor(model => model.Matkhau)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IDQuyen)
-        </dt>
+            Tên quyền        </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IDQuyen)
+            @Html.DisplayFor(model => model.TenQuyen)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Diachi)
@@ -47,15 +47,10 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Diachi)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Anhdaidien)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Anhdaidien)
-        </dd>
+      
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.MaNguoiDung">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<p>
+    <button class="btn-primary"> @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaNguoiDung }, new { @style = "color:white;" }) </button>
+</p>
+

@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebBanDienThoai.Models;
+using X.PagedList;
 
 namespace WebBanDienThoai.Controllers
 {
     public class NguoidungsController : Controller
     {
-        private readonly QLBanDTContext _context;
-
+        private readonly QLBanDTContext _context = new QLBanDTContext();
+        
         public NguoidungsController(QLBanDTContext context)
         {
             _context = context;
@@ -21,103 +23,42 @@ namespace WebBanDienThoai.Controllers
         // GET: Nguoidungs
         public async Task<IActionResult> Index()
         {
-              return _context.Nguoidungs != null ? 
-                          View(await _context.Nguoidungs.ToListAsync()) :
-                          Problem("Entity set 'QLBanDTContext.Nguoidungs'  is null.");
+            var nguoidungs = await _context.Nguoidungs
+                .Join(_context.PhanQuyens, p => p.MaNguoiDung, u => u.IDQuyen,
+                    (p, u) => new User_Role
+                    {
+                        Hoten = p.Hoten,
+                        Email = p.Email,
+                        Matkhau = p.Matkhau,
+                        Diachi = p.Diachi,
+                        TenQuyen = u.TenQuyen
+                    })
+            .ToListAsync();
+
+            return View(nguoidungs);
         }
 
-        // GET: Nguoidungs/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null || _context.Nguoidungs == null)
             {
                 return NotFound();
             }
 
-            var nguoidung = await _context.Nguoidungs
-                .FirstOrDefaultAsync(m => m.MaNguoiDung == id);
+            var nguoidung = _context.Nguoidungs.Include(u=>u.IDQuyen)
+                .FirstOrDefault(m => m.MaNguoiDung == id);
             if (nguoidung == null)
             {
                 return NotFound();
             }
-
+            ViewData["IDQuyen"] = new SelectList(_context.PhanQuyens, "IDQuyen", "TenQuyen");
             return View(nguoidung);
         }
-
-        // GET: Nguoidungs/Create
         public IActionResult Create()
         {
-            return View();
+            return View();  
         }
 
-        // POST: Nguoidungs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaNguoiDung,Hoten,Email,Dienthoai,Matkhau,Idquyen,Diachi,Anhdaidien")] Nguoidung nguoidung)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(nguoidung);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(nguoidung);
-        }
-
-        // GET: Nguoidungs/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Nguoidungs == null)
-            {
-                return NotFound();
-            }
-
-            var nguoidung = await _context.Nguoidungs.FindAsync(id);
-            if (nguoidung == null)
-            {
-                return NotFound();
-            }
-            return View(nguoidung);
-        }
-
-        // POST: Nguoidungs/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MaNguoiDung,Hoten,Email,Dienthoai,Matkhau,Idquyen,Diachi,Anhdaidien")] Nguoidung nguoidung)
-        {
-            if (id != nguoidung.MaNguoiDung)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(nguoidung);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!NguoidungExists(nguoidung.MaNguoiDung))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(nguoidung);
-        }
-
-        // GET: Nguoidungs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Nguoidungs == null)

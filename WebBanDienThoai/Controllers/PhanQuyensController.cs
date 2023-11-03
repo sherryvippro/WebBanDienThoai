@@ -27,22 +27,7 @@ namespace WebBanDienThoai.Controllers
         }
 
         // GET: PhanQuyens/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.PhanQuyens == null)
-            {
-                return NotFound();
-            }
-
-            var phanQuyen = await _context.PhanQuyens
-                .FirstOrDefaultAsync(m => m.IDQuyen == id);
-            if (phanQuyen == null)
-            {
-                return NotFound();
-            }
-
-            return View(phanQuyen);
-        }
+       
 
         // GET: PhanQuyens/Create
         public IActionResult Create()
