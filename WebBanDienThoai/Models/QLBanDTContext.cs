@@ -32,7 +32,7 @@ namespace WebBanDienThoai.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-HP034J7\\SQLEXPRESS;Initial Catalog=QLBanDT;User ID=sa;Password=123");
+                optionsBuilder.UseSqlServer("Data Source=DuongHang;Initial Catalog=QLBanDT;User ID=sa;Password=123");
             }
         }
 
@@ -94,6 +94,18 @@ namespace WebBanDienThoai.Models
                 entity.Property(e => e.KhuyenMai).HasMaxLength(100);
 
                 entity.Property(e => e.Slban).HasColumnName("SLBan");
+
+                entity.HasOne(d => d.MaSpNavigation)
+                    .WithMany(p => p.TChiTietHdbs)
+                    .HasForeignKey(d => d.MaSp)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tChiTietHDB_tSP");
+
+                entity.HasOne(d => d.SoHdbNavigation)
+                    .WithMany(p => p.TChiTietHdbs)
+                    .HasForeignKey(d => d.SoHdb)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tChiTietHDB_tHoaDonBan");
             });
 
             modelBuilder.Entity<TChiTietHdn>(entity =>
@@ -113,6 +125,18 @@ namespace WebBanDienThoai.Models
                 entity.Property(e => e.KhuyenMai).HasMaxLength(100);
 
                 entity.Property(e => e.Slnhap).HasColumnName("SLNhap");
+
+                entity.HasOne(d => d.MaSpNavigation)
+                    .WithMany(p => p.TChiTietHdns)
+                    .HasForeignKey(d => d.MaSp)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tChiTietHDN_tSP");
+
+                entity.HasOne(d => d.SoHdnNavigation)
+                    .WithMany(p => p.TChiTietHdns)
+                    .HasForeignKey(d => d.SoHdn)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tChiTietHDN_tHoaDonNhap");
             });
 
             modelBuilder.Entity<THang>(entity =>
@@ -165,6 +189,11 @@ namespace WebBanDienThoai.Models
                 entity.Property(e => e.TongHdn)
                     .HasColumnType("money")
                     .HasColumnName("TongHDN");
+
+                entity.HasOne(d => d.MaNccNavigation)
+                    .WithMany(p => p.THoaDonNhaps)
+                    .HasForeignKey(d => d.MaNcc)
+                    .HasConstraintName("FK_tHoaDonNhap_tNhaCungCap");
             });
 
             modelBuilder.Entity<TNhaCungCap>(entity =>
@@ -193,7 +222,10 @@ namespace WebBanDienThoai.Models
                     .HasMaxLength(10)
                     .HasColumnName("MaSP");
 
-                entity.Property(e => e.Anh).HasColumnType("image");
+
+
+                entity.Property(e => e.Anh).HasColumnType("nvarchar");
+
 
                 entity.Property(e => e.DonGiaBan).HasColumnType("money");
 
@@ -208,6 +240,16 @@ namespace WebBanDienThoai.Models
                 entity.Property(e => e.TenSp)
                     .HasMaxLength(200)
                     .HasColumnName("TenSP");
+
+                entity.HasOne(d => d.MaHangNavigation)
+                    .WithMany(p => p.TSp)
+                    .HasForeignKey(d => d.MaHang)
+                    .HasConstraintName("FK_tSP_tHang");
+
+                entity.HasOne(d => d.MaTlNavigation)
+                    .WithMany(p => p.TSp)
+                    .HasForeignKey(d => d.MaTl)
+                    .HasConstraintName("FK_tSP_tTheLoai");
             });
 
             modelBuilder.Entity<TTheLoai>(entity =>

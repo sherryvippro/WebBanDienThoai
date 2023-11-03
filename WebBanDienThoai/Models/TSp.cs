@@ -5,6 +5,12 @@ namespace WebBanDienThoai.Models
 {
     public partial class TSp
     {
+        public TSp()
+        {
+            TChiTietHdbs = new HashSet<TChiTietHdb>();
+            TChiTietHdns = new HashSet<TChiTietHdn>();
+        }
+
         public string MaSp { get; set; } = null!;
         public string? TenSp { get; set; }
         public string? MaTl { get; set; }
@@ -12,7 +18,8 @@ namespace WebBanDienThoai.Models
         public decimal? DonGiaNhap { get; set; }
         public decimal? DonGiaBan { get; set; }
         public int? SoLuong { get; set; }
-        public byte[]? Anh { get; set; }
+        public string? Anh { get; set; }
+
         public virtual THang? MaHangNavigation { get; set; }
         public virtual TTheLoai? MaTlNavigation { get; set; }
         public virtual ICollection<TChiTietHdb> TChiTietHdbs { get; set; }

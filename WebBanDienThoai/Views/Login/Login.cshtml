@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Đăng nhập";
+
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Đăng nhập</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="Kero HTML Bootstrap 4 Dashboard Template">
+
+    <meta name="msapplication-tap-highlight" content="no">
+    <link href="~/Login/main.07a59de7b920cd76b874.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow">
+        <div class="app-container">
+            <div class="h-100 bg-plum-plate bg-animation">
+                <div class="d-flex h-100 justify-content-center align-items-center">
+                    <div class="mx-auto app-login-box col-md-8">
+                        <div class="modal-dialog w-100 mx-auto">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="h5 modal-title text-center">
+                                        <h4 class="mt-2">
+                                            <div>Xin chào!</div>
+                                            <span>Vui lòng đăng nhập vào tài khoản của bạn.</span>
+                                        </h4>
+                                    </div>
+                                    <form method="post">
+                                        <div class="form-row">
+                                            <div class="col-md-12">
+                                                <div class="position-relative form-group"><input name="userName" id="exampleName" placeholder="Nhập email" type="text" class="form-control"></div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="position-relative form-group"><input name="passWord" id="examplePassword" placeholder="Nhập mật khẩu" type="password" class="form-control"></div>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative form-check"><input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Duy trì đăng nhập</label></div>
+                                    </form>
+                                    <div class="divider"></div>
+                                    <p class="text-danger">@ViewBag.Error</p>
+                                    <h6 class="mb-0">Chưa có tài khoản? <a href="javascript:void(0);" class="text-primary">Đăng kí ngay!</a></h6>
+                                </div>
+                                <div class="modal-footer clearfix">
+                                    <div class="float-left"><a href="javascript:void(0);" class="btn-lg btn btn-link">Quên mật khẩu</a></div>
+                                    <div class="form-group float-right">
+                                        <button type="submit" class="btn btn-primary btn-lg">Đăng nhập</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Login/assets/scripts/main.07a59de7b920cd76b874.js"></script>
+</body>
+
+</html>
