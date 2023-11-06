@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\WebBanDienThoai.csproj": {}
+    "D:\\Lập trình web\\WebBanDienThoai\\WebBanDienThoai\\WebBanDienThoai.csproj": {}
   },
   "projects": {
-    "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\WebBanDienThoai.csproj": {
+    "D:\\Lập trình web\\WebBanDienThoai\\WebBanDienThoai\\WebBanDienThoai.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\WebBanDienThoai.csproj",
+        "projectUniqueName": "D:\\Lập trình web\\WebBanDienThoai\\WebBanDienThoai\\WebBanDienThoai.csproj",
         "projectName": "WebBanDienThoai",
-        "projectPath": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\WebBanDienThoai.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\obj\\",
+        "projectPath": "D:\\Lập trình web\\WebBanDienThoai\\WebBanDienThoai\\WebBanDienThoai.csproj",
+        "packagesPath": "C:\\Users\\Think X1\\.nuget\\packages\\",
+        "outputPath": "D:\\Lập trình web\\WebBanDienThoai\\WebBanDienThoai\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Think X1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
