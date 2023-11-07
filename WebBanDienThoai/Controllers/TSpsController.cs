@@ -91,8 +91,8 @@ namespace WebBanDienThoai.Controllers
                 {
                     Products = _context.TSp.Where(t => t.SoLuong > 0).Include(t => t.MaHangNavigation).Include(t => t.MaTlNavigation)
                     .Where(t => t.TenSp.Contains(keyword) || t.MaSp.Contains(keyword)
-                    || t.MaHangNavigation.TenHang.Contains(keyword) || t.MaTlNavigation.TenTl.Contains(keyword))
-                    .Skip((productPage - 1) * pageSize).Take(pageSize),
+                    || t.MaHangNavigation.TenHang.Contains(keyword) || t.MaTlNavigation.TenTl.Contains(keyword)),
+                    /*.Skip((productPage - 1) * pageSize).Take(pageSize),*/
                     SearchPagingInfo = new SearchPagingInfo
                     {
                         itemsPerPage = pageSize,

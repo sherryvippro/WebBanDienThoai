@@ -73,42 +73,6 @@
       "PackagePath": "staticwebassets\\fonts\\typicons.woff"
     },
     {
-      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\1.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\1.jpg"
-    },
-    {
-      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\2.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\2.jpg"
-    },
-    {
-      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\3.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\3.jpg"
-    },
-    {
-      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\4.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\4.jpg"
-    },
-    {
-      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\5.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\5.jpg"
-    },
-    {
-      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\6.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\6.jpg"
-    },
-    {
-      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\7.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\7.jpg"
-    },
-    {
-      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\8.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\8.jpg"
-    },
-    {
-      "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\avatars\\9.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\9.jpg"
-    },
-    {
       "Id": "D:\\Web\\WebBanDienThoai\\WebBanDienThoai\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
     },

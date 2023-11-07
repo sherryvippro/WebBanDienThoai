@@ -14,10 +14,9 @@ using System.Net.NetworkInformation;
 
 namespace WebBanDienThoai.Controllers
 {
-    public class THoaDonBansController : Controller
+    public class THoaDonBansController : BaseController
     {
         private readonly QLBanDTContext _context;
-        private readonly ProductServices _productServices;
         public int pageSize = 10;
 
         public THoaDonBansController(QLBanDTContext context)

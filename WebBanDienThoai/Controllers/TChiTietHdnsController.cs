@@ -10,14 +10,15 @@ using WebBanDienThoai.Services;
 
 namespace WebBanDienThoai.Controllers
 {
-    public class TChiTietHdnsController : Controller
+    public class TChiTietHdnsController : BaseController
     {
         private readonly QLBanDTContext _context;
         private readonly InvoiceServices _invoiceServices;
 
-        public TChiTietHdnsController(QLBanDTContext context)
+        public TChiTietHdnsController(QLBanDTContext context, InvoiceServices invoiceServices)
         {
             _context = context;
+            _invoiceServices = invoiceServices;
         }
 
         // GET: TChiTietHdns

@@ -11,7 +11,7 @@ using SQLitePCL;
 
 namespace WebBanDienThoai.Controllers
 {
-    public class THoaDonNhapsController : Controller
+    public class THoaDonNhapsController : BaseController
     {
         private readonly QLBanDTContext _context;
         private readonly InvoiceServices _invoiceServices;

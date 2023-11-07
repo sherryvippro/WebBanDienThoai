@@ -80,9 +80,9 @@
                                 @Html.DisplayFor(modelItem => item.MaTlNavigation.TenTl)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.MaSp">Sửa</a> |
-                                <a asp-action="Details" asp-route-id="@item.MaSp">Chi tiết</a> |
-                                <a asp-action="Delete" asp-route-id="@item.MaSp">Xóa</a>
+                                <a asp-action="Edit" asp-route-id="@item.MaSp" class="btn btn-primary">Sửa</a>
+                                <a asp-action="Details" asp-route-id="@item.MaSp" class="btn btn-primary">Chi tiết</a>
+                                <a asp-action="Delete" asp-route-id="@item.MaSp" class="btn btn-primary">Xóa</a>
                             </td>
                         </tr>
                     }
