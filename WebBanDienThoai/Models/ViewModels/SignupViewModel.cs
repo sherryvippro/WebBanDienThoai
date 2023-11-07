@@ -7,6 +7,7 @@ namespace WebBanDienThoai.Models.ViewModels
         [Required(ErrorMessage = "Không được để trống")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Mật khẩu không được để trống")]
+        [StringLength(100, MinimumLength = 8)]
         public string passWord { get; set; }
         [Required(ErrorMessage = "Mật khẩu không được để trống")]
         [Compare("passWord", ErrorMessage = "Mật khẩu không khớp")]

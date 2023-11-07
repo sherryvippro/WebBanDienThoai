@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/MyLayout.cshtml";
 }
 <body>
+<div class="product-create">
     <h1 class="product-edit">Chỉnh sửa thông tin sản phẩm</h1>
 
     <hr />
     <div class="row row-edit">
-        <form asp-action="Edit">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="MaSp" />
 
@@ -67,6 +68,7 @@
 
         </form>
     </div>
+</div>
 </body>
 @section Scripts {
     @{
@@ -84,5 +86,12 @@
         font-size: 2rem;
         text-align: center;
         margin: revert-layer;
+    }
+
+    .product-create {
+        border-radius: 5px;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        background-color: white;
     }
 </style>

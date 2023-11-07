@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/MyLayout.cshtml";
 }
 <body>
+<div class="product-create">
 
     <h1 class="product-new">Thêm mới sản phẩm</h1>
 
@@ -67,10 +68,11 @@
         </form>
 
     </div>
-
     <div>
-        <a asp-action="Index">Quay lại</a>
+        <a asp-action="Index" class="btn btn-primary">Quay lại</a>
     </div>
+</div>
+
 </body>
 @section Scripts {
     @{
@@ -88,5 +90,14 @@
         font-size: 2rem;
         text-align: center;
         margin: revert-layer;
+    }
+    .product-create{
+        border-radius: 5px;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        background-color: white;
+    }
+    .btn.btn-primary{
+        margin-bottom: 15px;
     }
 </style>

@@ -53,13 +53,13 @@ namespace WebBanDienThoai.Services
             _context.SaveChanges();
             return tSp;
         }
-        public async Task<TSp> EditProductAsync(InputProducts inputProducts)
+        public async Task<TSp> EditProductAsync(InputProducts inputProducts, string id)
         {
-            var query = _context.TSp.Find(inputProducts.MaSp);
+            var query = await _context.TSp.FindAsync(id);
             if (query != null)
             {
                 query.TenSp = inputProducts.TenSp;
-                query.SoLuong += inputProducts.SoLuong;
+                query.SoLuong = inputProducts.SoLuong;
                 query.DonGiaBan = inputProducts.DonGiaBan;
                 query.DonGiaNhap = inputProducts.DonGiaNhap;
                 query.Anh = await _imageServices.SaveFileAsync(inputProducts.Anh);

@@ -12,7 +12,7 @@ namespace WebBanDienThoai.InputModels
         public decimal? DonGiaNhap { get; set; }
         public decimal? DonGiaBan { get; set; }
         public int? SoLuong { get; set; }
-        public IFormFile? Anh { get; set; }
+        public IFormFile Anh { get; set; }
 
     }
 }

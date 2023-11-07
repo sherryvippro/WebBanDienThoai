@@ -52,8 +52,6 @@ namespace WebBanDienThoai.Controllers
                 ViewBag.TopProduct = TenSp;
                 ViewBag.TotalSales = money;
             }
-            /*ar products = _context.TSp.Include(t => t.MaHangNavigation).Include(t => t.MaTlNavigation).ToList();
-            return View(products);*/
             /* hàm skip bỏ qua số trang = số trang hiện tại * số lượng item trên mỗi trang
              * hàm take để lấy ra trang tiếp theo với số lượng bản ghi = pagesize*/
             var products = new ProductListViewModel
@@ -70,13 +68,28 @@ namespace WebBanDienThoai.Controllers
             return View(products);
 
         }
+        public IActionResult GetProducts(int productPage = 1)
+        {
+            var products = new ProductListViewModel
+            {
+                Products = _context.TSp.Where(t => t.SoLuong > 0).Include(t => t.MaHangNavigation).Include(t => t.MaTlNavigation)
+                    .Skip((productPage - 1) * pageSize).Take(pageSize),
+                PagingInfo = new PagingInfo
+                {
+                    itemsPerPage = pageSize,
+                    currentPage = productPage,
+                    totalItem = _context.TSp.Where(x => x.SoLuong > 0).Count(),
+                }
+            };
+            return PartialView("GetProducts", products);
+        }
         [HttpPost]
         public async Task<IActionResult> Search(string keyword, int productPage = 1)
         {
             return View(
                 new SearchProductListViewModel
                 {
-                    Products = _context.TSp.Include(t => t.MaHangNavigation).Include(t => t.MaTlNavigation)
+                    Products = _context.TSp.Where(t => t.SoLuong > 0).Include(t => t.MaHangNavigation).Include(t => t.MaTlNavigation)
                     .Where(t => t.TenSp.Contains(keyword) || t.MaSp.Contains(keyword)
                     || t.MaHangNavigation.TenHang.Contains(keyword) || t.MaTlNavigation.TenTl.Contains(keyword))
                     .Skip((productPage - 1) * pageSize).Take(pageSize),
@@ -84,7 +97,7 @@ namespace WebBanDienThoai.Controllers
                     {
                         itemsPerPage = pageSize,
                         currentPage = productPage,
-                        totalItem = _context.TSp.Count(),
+                        totalItem = _context.TSp.Where(t => t.SoLuong > 0).Count(),
                         keyWord = keyword,
 
                     }
@@ -220,36 +233,21 @@ namespace WebBanDienThoai.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("MaSp,TenSp,MaTl,MaHang,DonGiaNhap,DonGiaBan,SoLuong,Anh")] TSp tSp)
+        public async Task<IActionResult> Edit(string id, InputProducts inputProducts)
         {
-            if (id != tSp.MaSp)
+            /*if (id != tSp.MaSp)
             {
                 return NotFound();
-            }
+            }*/
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(tSp);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TSpExists(tSp.MaSp))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                var products = await _productServices.EditProductAsync(inputProducts, id);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MaHang"] = new SelectList(_context.THangs, "MaHang", "TenHang", tSp.MaHang);
-            ViewData["MaTl"] = new SelectList(_context.TTheLoais, "MaTl", "TenTl", tSp.MaTl);
-            return View(tSp);
+            ViewData["MaHang"] = new SelectList(_context.THangs, "MaHang", "TenHang", inputProducts.MaHang);
+            ViewData["MaTl"] = new SelectList(_context.TTheLoais, "MaTl", "TenTl", inputProducts.MaTl);
+            return View();
         }
 
         // GET: TSps/Delete/5

@@ -36,16 +36,14 @@ namespace WebBanDienThoai.Controllers
             HttpContext.Session.SetString("Email", user.Email);
 
             // return trang san pham hoac admin
-            /*if(user.Email == "sherryvippro@gmail.com")
+            if (user.IDQuyen == 1)
             {
                 return RedirectToAction("Index", "TSps");
-            } else
+            }
+            else
             {
-                return RedirectToAction();
-            }*/
-
-            return RedirectToAction("Index", "TSps");
-
+                return RedirectToAction("Index", "Home");
+            }
         }
         public IActionResult Logout()
         {
@@ -54,7 +52,7 @@ namespace WebBanDienThoai.Controllers
         }
         public IActionResult SignUp()
         {
-            return View();
+            return View("SignUp");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -68,16 +66,16 @@ namespace WebBanDienThoai.Controllers
                     Matkhau = signupViewModel.passWord,
                     Email = signupViewModel.email
                 };
-                _context.Add(user);
+                _context.Nguoidungs.Add(user);
                 _context.SaveChanges();
-                return View("Index");
+                return View("Login");
 
             }
             else
             {
                 ModelState.AddModelError("New Error", "Invalid Data");
             }
-            return View();
+            return View("SignUp");
         }
     }
 }
