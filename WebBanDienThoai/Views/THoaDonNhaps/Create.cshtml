@@ -1,0 +1,60 @@
+﻿@model WebBanDienThoai.Models.THoaDonNhap
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+
+
+<h3>THÊM HÓA ĐƠN</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SoHdn" class="control-label">Số hóa đơn</label>
+                <input asp-for="SoHdn" class="form-control" value="@ViewBag.SoHDN" />
+                <span asp-validation-for="SoHdn" class="text-danger"></span>
+                @* <span asp-validation-for="SoHdn" class="text-danger"></span> *@
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NgayNhap" class="control-label">Ngày nhập</label>
+                <input asp-for="NgayNhap" class="form-control" />
+                <span asp-validation-for="NgayNhap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaNcc" class="control-label">Nhà cung cấp</label>
+                <select asp-for="MaNcc" class="form-control" asp-items="ViewBag.MaNcc"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TongHdn" class="control-label">Tổng</label>
+                <input asp-for="TongHdn" class="form-control" />
+                <span asp-validation-for="TongHdn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<style>
+    .btn {
+        float: left;
+        margin-left: 15px;
+    }
+
+    .invoiceInDetail-list {
+        margin-top: revert-layer;
+        text-align: center;
+        font-size: 2rem;
+    }
+</style>
+

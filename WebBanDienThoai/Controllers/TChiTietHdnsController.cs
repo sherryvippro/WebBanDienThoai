@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebBanDienThoai.Models;
+using WebBanDienThoai.Services;
 
-namespace Admin.Controllers
+namespace WebBanDienThoai.Controllers
 {
     public class TChiTietHdnsController : Controller
     {
         private readonly QLBanDTContext _context;
+        private readonly InvoiceServices _invoiceServices;
 
         public TChiTietHdnsController(QLBanDTContext context)
         {
@@ -21,8 +23,28 @@ namespace Admin.Controllers
         // GET: TChiTietHdns
         public async Task<IActionResult> Index(string id)
         {
-            var qLBanDTContext = _context.TChiTietHdns.Where(t => t.SoHdn == id)
-                .Include(t => t.MaSpNavigation).Include(t => t.SoHdnNavigation).Include(t => t.SoHdnNavigation.MaNccNavigation);
+            ViewBag.TT = 0;
+            var qLBanDTContext = _context.TChiTietHdns.Include(t => t.MaSpNavigation)
+                .Include(t => t.SoHdnNavigation)
+                .Include(t => t.SoHdnNavigation.MaNccNavigation).Where(t => t.SoHdn == id);
+
+            foreach (var item in qLBanDTContext)
+            {
+                ViewBag.TT += item.MaSpNavigation.DonGiaNhap * item.Slnhap;
+            }
+
+            // Tính tổng tiền hóa đơn nhập
+            var total = ViewBag.TT;
+
+            // Lưu tổng tiền hóa đơn nhập vào cơ sở dữ liệu
+            var hoaDonNhap = new THoaDonNhap();
+            hoaDonNhap = await _context.THoaDonNhaps.FindAsync(id);
+            if (hoaDonNhap != null && total != null)
+            {
+                hoaDonNhap.TongHdn = total;
+                await _context.SaveChangesAsync();
+            }
+            await _context.SaveChangesAsync();
             return View(await qLBanDTContext.ToListAsync());
         }
 
@@ -51,7 +73,7 @@ namespace Admin.Controllers
         {
             ViewData["MaSp"] = new SelectList(_context.TSp, "MaSp", "TenSp");
             ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn");
-            *//*ViewData["MaNcc"] = new SelectList(_context.THoaDonNhaps, "MaNcc", "TenNcc");*//*
+            /*ViewData["MaNcc"] = new SelectList(_context.THoaDonNhaps, "MaNcc", "TenNcc");*/
             return View();
         }
 
@@ -62,7 +84,7 @@ namespace Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("SoHdn,MaSp,Slnhap,KhuyenMai")] TChiTietHdn tChiTietHdn)
         {
-            *//*if (ModelState.IsValid)
+            /*if (ModelState.IsValid)
             {
                 _context.Add(tChiTietHdn);
                 await _context.SaveChangesAsync();
@@ -72,8 +94,9 @@ namespace Admin.Controllers
             ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn", tChiTietHdn.SoHdn);
 
 
-            return View("Index", tChiTietHdn);*//*
-            if (ModelState.IsValid)
+            return View("Index", tChiTietHdn);*/
+
+            /*if (ModelState.IsValid)
             {
                 _context.Add(tChiTietHdn);
                 await _context.SaveChangesAsync();
@@ -83,8 +106,17 @@ namespace Admin.Controllers
             ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn", tChiTietHdn.SoHdn);
 
             // Load a list of TChiTietHdn to display in the view
-            var chiTietHdnList = await _context.TChiTietHdns.ToListAsync();
+            
+            return RedirectToAction("Index", new {id = tChiTietHdn.SoHdn});*/
 
+            if (ModelState.IsValid)
+            {
+                var Hdn = _invoiceServices.createInvoiceIn(tChiTietHdn, tChiTietHdn.MaSp);
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn", tChiTietHdn.SoHdn);
             return RedirectToAction("Index", new { id = tChiTietHdn.SoHdn });
         }
 
@@ -188,4 +220,3 @@ namespace Admin.Controllers
         }
     }
 }
-*/
