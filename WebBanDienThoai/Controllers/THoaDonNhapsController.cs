@@ -14,20 +14,16 @@ namespace WebBanDienThoai.Controllers
     public class THoaDonNhapsController : BaseController
     {
         private readonly QLBanDTContext _context;
-        private readonly InvoiceServices _invoiceServices;
 
-        public THoaDonNhapsController(QLBanDTContext context, InvoiceServices invoiceServices)
+        public THoaDonNhapsController(QLBanDTContext context)
         {
             _context = context;
-            _invoiceServices = invoiceServices;
         }
 
         // GET: THoaDonNhaps
         public async Task<IActionResult> Index()
         {
             var qLBanDTContext = _context.THoaDonNhaps.Include(t => t.MaNccNavigation);
-            
-            _context.SaveChanges();
             return View(await qLBanDTContext.ToListAsync());
         }
 
@@ -42,21 +38,17 @@ namespace WebBanDienThoai.Controllers
             var tHoaDonNhap = await _context.THoaDonNhaps
                 .Include(t => t.MaNccNavigation)
                 .FirstOrDefaultAsync(m => m.SoHdn == id);
-            
             if (tHoaDonNhap == null)
             {
                 return NotFound();
             }
-            ViewBag.HDN = tHoaDonNhap.SoHdn;
-
 
             return View(tHoaDonNhap);
         }
 
         // GET: THoaDonNhaps/Create
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            ViewBag.SoHDN = await _invoiceServices.GenerateSHDNAsync();
             ViewData["MaNcc"] = new SelectList(_context.TNhaCungCaps, "MaNcc", "TenNcc");
             return View();
         }
@@ -70,11 +62,11 @@ namespace WebBanDienThoai.Controllers
         {
             if (ModelState.IsValid)
             {
+                tHoaDonNhap.TongHdn = 0;
                 _context.Add(tHoaDonNhap);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.SoHDN = await _invoiceServices.GenerateSHDNAsync();
             ViewData["MaNcc"] = new SelectList(_context.TNhaCungCaps, "MaNcc", "TenNcc", tHoaDonNhap.MaNcc);
             return View(tHoaDonNhap);
         }
@@ -163,6 +155,7 @@ namespace WebBanDienThoai.Controllers
             var tHoaDonNhap = await _context.THoaDonNhaps.FindAsync(id);
             if (tHoaDonNhap != null)
             {
+                _context.TChiTietHdns.RemoveRange(_context.TChiTietHdns.Where(x => x.SoHdn == tHoaDonNhap.SoHdn));
                 _context.THoaDonNhaps.Remove(tHoaDonNhap);
             }
             

@@ -23,9 +23,21 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.KhuyenMai)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MaSpNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MaSpNavigation.MaSp)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SoHdnNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SoHdnNavigation.SoHdn)
+        </dd>
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+
+    @Html.ActionLink("Back to list", "Index", new { id = ViewBag.SoHdn }) |
 </div>

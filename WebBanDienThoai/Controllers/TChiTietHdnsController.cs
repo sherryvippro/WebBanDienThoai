@@ -13,67 +13,45 @@ namespace WebBanDienThoai.Controllers
     public class TChiTietHdnsController : BaseController
     {
         private readonly QLBanDTContext _context;
-        private readonly InvoiceServices _invoiceServices;
 
-        public TChiTietHdnsController(QLBanDTContext context, InvoiceServices invoiceServices)
+        public TChiTietHdnsController(QLBanDTContext context)
         {
             _context = context;
-            _invoiceServices = invoiceServices;
         }
 
         // GET: TChiTietHdns
         public async Task<IActionResult> Index(string id)
         {
-            ViewBag.TT = 0;
-            var qLBanDTContext = _context.TChiTietHdns.Include(t => t.MaSpNavigation)
-                .Include(t => t.SoHdnNavigation)
-                .Include(t => t.SoHdnNavigation.MaNccNavigation).Where(t => t.SoHdn == id);
-
-            foreach (var item in qLBanDTContext)
-            {
-                ViewBag.TT += item.MaSpNavigation.DonGiaNhap * item.Slnhap;
-            }
-
-            // Tính tổng tiền hóa đơn nhập
-            var total = ViewBag.TT;
-
-            // Lưu tổng tiền hóa đơn nhập vào cơ sở dữ liệu
-            var hoaDonNhap = new THoaDonNhap();
-            hoaDonNhap = await _context.THoaDonNhaps.FindAsync(id);
-            if (hoaDonNhap != null && total != null)
-            {
-                hoaDonNhap.TongHdn = total;
-                await _context.SaveChangesAsync();
-            }
-            await _context.SaveChangesAsync();
+            var qLBanDTContext = _context.TChiTietHdns.Where(t => t.SoHdn == id)
+                .Include(t => t.MaSpNavigation).Include(t => t.SoHdnNavigation).Include(t => t.SoHdnNavigation.MaNccNavigation);
+            ViewBag.SoHdn = id;
             return View(await qLBanDTContext.ToListAsync());
         }
 
         // GET: TChiTietHdns/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(string id, string maSp)
         {
             if (id == null || _context.TChiTietHdns == null)
             {
                 return NotFound();
             }
 
-            var tChiTietHdn = await _context.TChiTietHdns
-                .Include(t => t.MaSpNavigation)
-                .Include(t => t.SoHdnNavigation)
-                .FirstOrDefaultAsync(m => m.SoHdn == id);
+            var tChiTietHdn = await _context.TChiTietHdns.Where(x => x.SoHdn == id && x.MaSp == maSp).FirstOrDefaultAsync();
+
             if (tChiTietHdn == null)
             {
                 return NotFound();
             }
-
+            ViewData["SoHdn"] = id;
             return View(tChiTietHdn);
         }
 
         // GET: TChiTietHdns/Create
-        public IActionResult Create()
+        public IActionResult Create(string id)
         {
             ViewData["MaSp"] = new SelectList(_context.TSp, "MaSp", "TenSp");
-            ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn");
+
+            ViewBag.SoHdn = id;
             /*ViewData["MaNcc"] = new SelectList(_context.THoaDonNhaps, "MaNcc", "TenNcc");*/
             return View();
         }
@@ -85,57 +63,38 @@ namespace WebBanDienThoai.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("SoHdn,MaSp,Slnhap,KhuyenMai")] TChiTietHdn tChiTietHdn)
         {
-            /*if (ModelState.IsValid)
+            try
             {
                 _context.Add(tChiTietHdn);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var hoaDonNhap = await _context.THoaDonNhaps.FindAsync(tChiTietHdn.SoHdn);
+                var sp = await _context.TSp.FindAsync(tChiTietHdn.MaSp);
+                hoaDonNhap.TongHdn += tChiTietHdn.Slnhap * sp.DonGiaNhap;
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index), new { id = tChiTietHdn.SoHdn });
             }
-            ViewData["MaSp"] = new SelectList(_context.TSp, "MaSp", "TenSp", tChiTietHdn.MaSp);
-            ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn", tChiTietHdn.SoHdn);
-
-
-            return View("Index", tChiTietHdn);*/
-
-            /*if (ModelState.IsValid)
+            catch (Exception)
             {
-                _context.Add(tChiTietHdn);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["MaSp"] = new SelectList(_context.TSp, "MaSp", "TenSp", tChiTietHdn.MaSp);
-            ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn", tChiTietHdn.SoHdn);
 
-            // Load a list of TChiTietHdn to display in the view
-            
-            return RedirectToAction("Index", new {id = tChiTietHdn.SoHdn});*/
+                ViewData["MaSp"] = new SelectList(_context.TSp, "MaSp", "TenSp", tChiTietHdn.MaSp);
 
-            if (ModelState.IsValid)
-            {
-                var Hdn = _invoiceServices.createInvoiceIn(tChiTietHdn, tChiTietHdn.MaSp);
-
-                return RedirectToAction(nameof(Index));
+                return View(tChiTietHdn);
             }
 
-            ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn", tChiTietHdn.SoHdn);
-            return RedirectToAction("Index", new { id = tChiTietHdn.SoHdn });
         }
 
         // GET: TChiTietHdns/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(string id, string maSp)
         {
             if (id == null || _context.TChiTietHdns == null)
             {
                 return NotFound();
             }
 
-            var tChiTietHdn = await _context.TChiTietHdns.FindAsync(id);
+            var tChiTietHdn = await _context.TChiTietHdns.Where(x => x.SoHdn == id && x.MaSp == maSp).FirstOrDefaultAsync();
             if (tChiTietHdn == null)
             {
                 return NotFound();
             }
-            ViewData["MaSp"] = new SelectList(_context.TSp, "MaSp", "MaSp", tChiTietHdn.MaSp);
-            ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn", tChiTietHdn.SoHdn);
             return View(tChiTietHdn);
         }
 
@@ -144,54 +103,52 @@ namespace WebBanDienThoai.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("SoHdn,MaSp,Slnhap,KhuyenMai")] TChiTietHdn tChiTietHdn)
+        public async Task<IActionResult> Edit(string id, string maSp, [Bind("SoHdn,MaSp,Slnhap,KhuyenMai")] TChiTietHdn tChiTietHdn)
         {
             if (id != tChiTietHdn.SoHdn)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    _context.Update(tChiTietHdn);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TChiTietHdnExists(tChiTietHdn.SoHdn))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                var hoaDonNhap = await _context.THoaDonNhaps.FindAsync(id);
+                var sp = await _context.TSp.FindAsync(maSp);
+                var chiTiet = await _context.TChiTietHdns.Where(_x => _x.SoHdn == id && _x.MaSp == maSp).FirstOrDefaultAsync();
+                hoaDonNhap.TongHdn -= chiTiet.Slnhap * sp.DonGiaNhap;
+                hoaDonNhap.TongHdn += tChiTietHdn.Slnhap * sp.DonGiaNhap;
+                chiTiet.Slnhap = tChiTietHdn.Slnhap;
+                chiTiet.KhuyenMai = tChiTietHdn.KhuyenMai;
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index), new { id });
             }
-            ViewData["MaSp"] = new SelectList(_context.TSp, "MaSp", "MaSp", tChiTietHdn.MaSp);
-            ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn", tChiTietHdn.SoHdn);
-            return View(tChiTietHdn);
+            catch (DbUpdateConcurrencyException)
+            {
+                
+                ViewData["MaSp"] = new SelectList(_context.TSp, "MaSp", "MaSp", tChiTietHdn.MaSp);
+                ViewData["SoHdn"] = new SelectList(_context.THoaDonNhaps, "SoHdn", "SoHdn", tChiTietHdn.SoHdn);
+                return View(tChiTietHdn);
+            }
+
+
+
         }
 
         // GET: TChiTietHdns/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(string id, string maSp)
         {
             if (id == null || _context.TChiTietHdns == null)
             {
                 return NotFound();
             }
 
-            var tChiTietHdn = await _context.TChiTietHdns
-                .Include(t => t.MaSpNavigation)
-                .Include(t => t.SoHdnNavigation)
-                .FirstOrDefaultAsync(m => m.SoHdn == id);
+            var tChiTietHdn = await _context.TChiTietHdns.Where(x => x.SoHdn == id && x.MaSp == maSp).FirstOrDefaultAsync();
+
             if (tChiTietHdn == null)
             {
                 return NotFound();
             }
+            ViewData["SoHdn"] = id;
 
             return View(tChiTietHdn);
         }
@@ -199,15 +156,18 @@ namespace WebBanDienThoai.Controllers
         // POST: TChiTietHdns/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(string id, string maSp)
         {
             if (_context.TChiTietHdns == null)
             {
                 return Problem("Entity set 'QLBanDTContext.TChiTietHdns'  is null.");
             }
-            var tChiTietHdn = await _context.TChiTietHdns.FindAsync(id);
+            var tChiTietHdn = await _context.TChiTietHdns.Where(x => x.SoHdn == id && x.MaSp == maSp).FirstOrDefaultAsync();
             if (tChiTietHdn != null)
             {
+                var hoaDonNhap = await _context.THoaDonNhaps.FindAsync(id);
+                var sp = await _context.TSp.FindAsync(maSp);
+                hoaDonNhap.TongHdn -= tChiTietHdn.Slnhap * sp.DonGiaNhap;
                 _context.TChiTietHdns.Remove(tChiTietHdn);
             }
 
