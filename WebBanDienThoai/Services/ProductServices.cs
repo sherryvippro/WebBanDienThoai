@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 using System.Linq;
 using System;
+using System.Collections;
 
 namespace WebBanDienThoai.Services
 {
@@ -130,6 +131,30 @@ namespace WebBanDienThoai.Services
             }
             else return "";
         }
+        /*public List<string> GetTop10Products()
+        {
+            var query = from sp in _context.TSp
+                        join chiTietHDB in _context.TChiTietHdbs on sp.MaSp equals chiTietHDB.MaSp
+                        join hoaDonBan in _context.THoaDonBans on chiTietHDB.SoHdb equals hoaDonBan.SoHdb
+                        where hoaDonBan.NgayBan.Value.Year == DateTime.Now.Year
+                        group chiTietHDB by sp.MaSp into g
+                        orderby g.Sum(x => x.Slban) descending
+                        select new
+                        {
+                            masp = g.Key,
+                            TotalSales = g.Sum(x => x.Slban),
+                            sohdb = g.Select(x => x.SoHdb),
+                            tensp = g.Select(x => x.MaSpNavigation.TenSp)
+                        };
+            string list = "";
+            if(query.Select(x => x.masp) == null)
+            {
+                list = "Không có sản phẩm nào";
+            }
+            
+                return query.Select(x => x.masp).ToList();
+
+        }*/
 
         public async Task<long> GetMoneyofTopProductsAsync()
         {

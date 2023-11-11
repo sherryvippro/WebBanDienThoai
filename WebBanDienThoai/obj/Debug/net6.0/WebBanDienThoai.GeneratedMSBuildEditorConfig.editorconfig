@@ -136,6 +136,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVEhvYURvbk5oYXBzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Web/WebBanDienThoai/WebBanDienThoai/Views/THoaDonNhaps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVEhvYURvbk5oYXBzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web/WebBanDienThoai/WebBanDienThoai/Views/THoaDonNhaps/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVEhvYURvbk5oYXBzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web/WebBanDienThoai/WebBanDienThoai/Views/THoaDonNhaps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVEhvYURvbk5oYXBzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Web/WebBanDienThoai/WebBanDienThoai/Views/THoaDonNhaps/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVEhvYURvbk5oYXBzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
