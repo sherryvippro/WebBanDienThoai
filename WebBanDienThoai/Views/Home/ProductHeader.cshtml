@@ -1,0 +1,25 @@
+﻿@using WebBanDienThoai.Models;
+@model List<TSp>
+
+@foreach (var item in Model)
+{
+    <div class="item">
+        <div class="slider-img">
+            <img src="~/User/images/@item.Anh" alt="">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 col-sm-6 col-xs-12">
+                    <div class="slider-captions">
+                        <div class="brand-img">
+                            <img src="images/mi_logo.png" alt="">
+                        </div>
+                        <h1 class="slider-title">@item.TenSp</h1>
+                        <p class="slider-price">$ @item.DonGiaBan </p>
+                        <a href="cart.html" class="btn btn-primary btn-lg hidden-xs">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
